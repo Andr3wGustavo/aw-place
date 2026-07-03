@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 import AudioPlayer from "./components/AudioPlayer";
+import { AudioProvider } from "./context/AudioContext";
 
 export const metadata: Metadata = {
   title: "AWPLACE DOG | Web3 Beat Store",
@@ -27,9 +28,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body>
-        {children}
-        {/* Componente Global de Áudio injetado na raiz do site */}
-        <AudioPlayer />
+        <AudioProvider>
+          {children}
+          {/* Componente Global de Áudio injetado na raiz do site */}
+          <AudioPlayer />
+        </AudioProvider>
       </body>
     </html>
   );
