@@ -13,7 +13,7 @@ export default function BeatCard({ beat }: { beat: any }) {
 
     return (
         <>
-            <div className="beat-card">
+            <div className="beat-card animate-slide-up">
                 {/* Capa clicável para dar Play/Pause */}
                 <div 
                     style={{height: '250px', background: '#333', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', cursor: 'pointer', transition: 'all 0.3s'}}

@@ -25,15 +25,15 @@ export default async function StorefrontPage() {
 
             <section className="hero">
                 <div className="hero-content">
-                    <span style={{color: '#6366f1', padding: '8px 20px', background: 'rgba(99,102,241,0.1)', borderRadius: '20px', fontSize: '0.9rem', fontWeight: 600}}>
+                    <span style={{color: '#06b6d4', padding: '8px 25px', background: 'rgba(6, 182, 212, 0.1)', border: '1px solid rgba(6, 182, 212, 0.3)', borderRadius: '100px', fontSize: '0.9rem', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', boxShadow: '0 0 15px rgba(6,182,212,0.3)'}}>
                         The Web3 Music Revolution
                     </span>
-                    <h1 style={{fontSize: '4.5rem', fontWeight: 800, margin: '1.5rem 0 1rem'}}>
+                    <h1 style={{fontSize: '5rem', fontWeight: 900, margin: '2rem 0 1.5rem', lineHeight: '1.1', letterSpacing: '-2px'}}>
                         Own Your Sound. <br/>
-                        <span style={{ color: '#ec4899' }}>Buy Beats as NFTs.</span>
+                        <span className="web3-gradient-text">Buy Beats as NFTs.</span>
                     </h1>
-                    <p style={{color: '#94a3b8', fontSize: '1.2rem', marginBottom: '3rem'}}>
-                        Licenças garantidas por Smart Contracts. Downloads imutáveis em qualidade de estúdio.
+                    <p style={{color: '#94a3b8', fontSize: '1.25rem', marginBottom: '3rem', maxWidth: '600px', margin: '0 auto 3rem'}}>
+                        Licenças garantidas por Smart Contracts. Downloads imutáveis em qualidade de estúdio, conectando produtores e artistas diretamente.
                     </p>
                 </div>
             </section>

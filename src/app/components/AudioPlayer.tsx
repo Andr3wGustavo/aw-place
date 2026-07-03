@@ -19,16 +19,10 @@ export default function AudioPlayer() {
     const progressPercent = duration > 0 ? (progress / duration) * 100 : 0;
 
     return (
-        <div style={{
-            position: 'fixed', bottom: '20px', left: '50%', transform: 'translateX(-50%)',
-            background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(20px)',
-            borderRadius: '100px', padding: '15px 30px', display: 'flex', gap: '25px',
-            alignItems: 'center', color: '#fff', border: '1px solid rgba(255,255,255,0.1)',
-            boxShadow: '0 10px 30px rgba(0,0,0,0.5)', zIndex: 9999
-        }}>
+        <div className="audio-player-glass">
             <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                {/* Se houvesse cover da música, entraria aqui. Mock colorido pro MVP */}
-                <div style={{ width: '40px', height: '40px', background: '#ec4899', borderRadius: '10px' }}></div>
+                {/* Capa animada (girando levemente quando toca) */}
+                <div style={{ width: '50px', height: '50px', background: `linear-gradient(135deg, #ec4899, #6366f1)`, borderRadius: '12px', boxShadow: '0 0 15px rgba(236,72,153,0.5)', transition: 'transform 0.5s', transform: isPlaying ? 'scale(1.1)' : 'scale(1)' }}></div>
                 <div>
                     <h4 style={{ margin: 0, fontSize: '1rem' }}>{currentBeat.title}</h4>
                     <p style={{ margin: 0, fontSize: '0.8rem', color: '#94a3b8' }}>AWPLACE DOG</p>
