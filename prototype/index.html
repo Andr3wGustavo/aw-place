@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>awplace dog | Web3 Beat Store</title>
+    <meta name="description" content="Premium Decentralized Beat Store">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Fonte Inter (Apple Style) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icones Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    
+    <!-- Background Animado (Glass blobs) -->
+    <div class="ambient-background">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- App Container (Glassmorphic) -->
+    <main class="app-container">
+        
+        <!-- Navbar -->
+        <header class="navbar">
+            <div class="logo">
+                <i data-lucide="music-4" class="logo-icon"></i>
+                <span>awplace dog</span>
+            </div>
+            
+            <nav class="nav-links">
+                <a href="#beats" class="active">Beats</a>
+                <a href="#membership">Membership</a>
+            </nav>
+            
+            <div class="nav-actions">
+                <button id="cart-btn" class="icon-btn">
+                    <i data-lucide="shopping-cart"></i>
+                    <span class="badge">0</span>
+                </button>
+                <button id="connect-wallet-btn" class="glass-btn primary-glow">
+                    <i data-lucide="wallet"></i>
+                    <span>Conectar Carteira</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <span class="hero-badge">Web3 Music Revolution</span>
+                <h1>Own Your Sound. <br><span class="text-gradient">Buy Beats as NFTs.</span></h1>
+                <p>Licenças garantidas por Smart Contracts. Downloads em qualidade de estúdio.</p>
+                <div class="hero-buttons">
+                    <a href="#beats" class="glass-btn large">Explorar Beats</a>
+                    <button class="glass-btn secondary large">Saber sobre Membership</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filtros e Busca -->
+        <section class="filters-section">
+            <div class="search-bar glass-panel">
+                <i data-lucide="search"></i>
+                <input type="text" id="search-input" placeholder="Buscar por título, gênero ou bpm...">
+            </div>
+            <div class="filter-tags">
+                <button class="filter-tag active" data-genre="all">Todos</button>
+                <button class="filter-tag" data-genre="trap">Trap</button>
+                <button class="filter-tag" data-genre="drill">Drill</button>
+                <button class="filter-tag" data-genre="rnb">R&B</button>
+            </div>
+        </section>
+
+        <!-- Grade de Beats -->
+        <section id="beats" class="beats-grid">
+            <!-- Renderizado via JS -->
+        </section>
+
+    </main>
+
+    <!-- Player de Áudio Persistente -->
+    <div class="audio-player glass-panel bottom-bar" id="audio-player" style="display: none;">
+        <div class="player-info">
+            <img src="" alt="Capa" id="player-cover">
+            <div class="track-details">
+                <h4 id="player-title">Track Title</h4>
+                <p id="player-producer">Producer</p>
+            </div>
+        </div>
+        
+        <div class="player-controls">
+            <div class="control-buttons">
+                <button class="icon-btn"><i data-lucide="skip-back"></i></button>
+                <button class="icon-btn play-btn primary-glow" id="main-play-pause">
+                    <i data-lucide="play" id="play-icon"></i>
+                </button>
+                <button class="icon-btn"><i data-lucide="skip-forward"></i></button>
+            </div>
+            <div class="progress-container">
+                <span id="current-time">0:00</span>
+                <div class="progress-bar-bg" id="progress-bar-container">
+                    <div class="progress-bar-fill" id="progress-bar"></div>
+                </div>
+                <span id="total-time">0:00</span>
+            </div>
+        </div>
+        
+        <div class="player-actions">
+            <!-- Espectro de Áudio Falso/Real -->
+            <canvas id="audio-visualizer" width="100" height="30"></canvas>
+            <button class="icon-btn"><i data-lucide="volume-2"></i></button>
+            <button class="glass-btn small checkout-quick-btn">Buy License</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/beats-data.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        // Inicia icones
+        lucide.createIcons();
+    </script>
+</body>
+</html>
