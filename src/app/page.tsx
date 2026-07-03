@@ -1,66 +1,69 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Web3LoginButton from "./components/Web3LoginButton";
+import { getCatalog } from "./actions/beat-actions";
 
-export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+export default async function StorefrontPage() {
+    // Busca as batidas diretamente do nosso Banco de Dados SQLite (Server Action)
+    const beats = await getCatalog();
+
+    return (
+        <main className="app-container">
+            {/* Navbar (O CSS estará em globals.css puxado do protótipo) */}
+            <header className="navbar">
+                <div className="logo">
+                    <span>awplace dog</span>
+                </div>
+                
+                <nav className="nav-links">
+                    <a href="#beats" className="active">Beats</a>
+                    <a href="/studio">Creator Console</a>
+                </nav>
+                
+                <div className="nav-actions">
+                    <Web3LoginButton />
+                </div>
+            </header>
+
+            {/* Hero Section */}
+            <section className="hero">
+                <div className="hero-content">
+                    <span className="hero-badge" style={{color: '#6366f1'}}>Web3 Music Revolution</span>
+                    <h1 style={{fontSize: '4rem', fontWeight: 800}}>
+                        Own Your Sound. <br/>
+                        <span style={{ color: '#ec4899' }}>Buy Beats as NFTs.</span>
+                    </h1>
+                    <p style={{color: '#94a3b8', fontSize: '1.2rem', marginBottom: '2rem'}}>
+                        Licenças garantidas por Smart Contracts. Downloads em qualidade de estúdio.
+                    </p>
+                </div>
+            </section>
+
+            {/* Grid de Beats Direto do Banco */}
+            <section id="beats" className="beats-grid" style={{
+                display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '2rem', paddingBottom: '120px'
+            }}>
+                {beats.length === 0 ? (
+                    <p style={{color: '#94a3b8'}}>Nenhuma batida cadastrada ainda. Acesse o Creator Console para fazer upload!</p>
+                ) : (
+                    beats.map(beat => (
+                        <div key={beat.id} className="beat-card" style={{
+                            background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(255,255,255,0.1)', 
+                            borderRadius: '20px', padding: '1rem', display: 'flex', flexDirection: 'column', gap: '1rem'
+                        }}>
+                            <div style={{height: '250px', background: '#333', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                                <span style={{fontSize: '3rem'}}>🎵</span>
+                            </div>
+                            <div>
+                                <h3 style={{fontSize: '1.2rem'}}>{beat.title}</h3>
+                                <p style={{color: '#94a3b8', fontSize: '0.9rem'}}>{beat.genre} • {beat.bpm} BPM</p>
+                                <p style={{color: '#6366f1', fontWeight: 700, marginTop: '0.5rem'}}>${beat.priceUsd}</p>
+                            </div>
+                            <button style={{background: 'rgba(99, 102, 241, 0.2)', border: '1px solid #6366f1', color: '#fff', padding: '10px', borderRadius: '10px', cursor: 'pointer'}}>
+                                Comprar Licença
+                            </button>
+                        </div>
+                    ))
+                )}
+            </section>
+        </main>
+    );
 }

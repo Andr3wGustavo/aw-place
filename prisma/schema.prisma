@@ -1,0 +1,80 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id            String     @id @default(uuid())
+  walletAddress String?    @unique
+  email         String?    @unique
+  name          String?
+  role          String     @default("USER") // USER, PRODUCER, ADMIN
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+
+  beats         Beat[]     @relation("ProducerBeats")
+  purchases     Purchase[]
+  memberships   Membership[]
+}
+
+model Beat {
+  id             String     @id @default(uuid())
+  title          String
+  producerId     String
+  producer       User       @relation("ProducerBeats", fields: [producerId], references: [id])
+  genre          String
+  bpm            Int
+  key            String?
+  priceEth       Float
+  priceUsd       Float
+  coverUrl       String?
+  demoAudioUrl   String?    // Watermarked MP3
+  hqWavUrl       String?    // Encrypted/Private WAV
+  stemsUrl       String?    // Encrypted/Private ZIP
+  isExclusiveSold Boolean   @default(false)
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+
+  purchases      Purchase[]
+}
+
+model License {
+  id             String     @id // e.g. "BASIC", "PREMIUM", "UNLIMITED", "EXCLUSIVE"
+  name           String     
+  basePrice      Float
+  allowStems     Boolean    @default(false)
+  streamLimit    Int?       // Null means unlimited
+  
+  purchases      Purchase[]
+}
+
+model Purchase {
+  id             String     @id @default(uuid())
+  beatId         String
+  beat           Beat       @relation(fields: [beatId], references: [id])
+  buyerId        String
+  buyer          User       @relation(fields: [buyerId], references: [id])
+  licenseId      String
+  license        License    @relation(fields: [licenseId], references: [id])
+  paymentMethod  String     // CRYPTO, PIX, STRIPE
+  amountPaid     Float
+  txHash         String?    // Web3 transaction hash
+  createdAt      DateTime   @default(now())
+}
+
+model Membership {
+  id             String     @id @default(uuid())
+  userId         String
+  user           User       @relation(fields: [userId], references: [id])
+  status         String     // ACTIVE, EXPIRED, CANCELLED
+  planType       String     // e.g., "PRO_PRODUCER", "BEAT_CLUB"
+  expiresAt      DateTime
+  createdAt      DateTime   @default(now())
+}

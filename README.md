@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+  <img src="https://img.shields.io/badge/Web3_Ready-6366f1?style=for-the-badge" alt="Web3 Ready" />
+  <img src="https://img.shields.io/badge/Next.js_15-black?style=for-the-badge&logo=next.js" alt="Next.js" />
+  <img src="https://img.shields.io/badge/Prisma_ORM-2D3748?style=for-the-badge&logo=prisma" alt="Prisma" />
+  <br/>
+  <h1>AWPLACE DOG 🎵</h1>
+  <p>A decentralized, highly-optimized beat store leveraging Web3 ownership and traditional fiat gateways.</p>
 
-## Getting Started
+  <!-- TODO: Replace placeholder below with actual application UI screenshot -->
+  <img src="https://via.placeholder.com/800x450/09090b/6366f1?text=AWPLACE+DOG+UI+Mockup" alt="AWPLACE DOG Interface" width="100%" />
+</div>
 
-First, run the development server:
+<br/>
+
+## 🚀 Architecture Overview
+
+**AWPLACE DOG** is an enterprise-grade music marketplace designed for producers who demand absolute control over their intellectual property. By utilizing a modern **Web3 architecture combined with robust Web2 infrastructure**, the platform delivers a frictionless purchasing experience (Crypto, Stripe, Pix) while securing on-chain royalties.
+
+<!-- TODO: Replace placeholder below with an architectural diagram (Next.js -> Postgres -> Wagmi) -->
+> *[Insert Technical Stack Diagram Here]*
+
+---
+
+## 🏗️ Technical Stack
+
+- **Frontend:** Next.js (App Router), React, TypeScript.
+- **Styling:** CSS Modules (iOS 17 Custom Glassmorphism).
+- **Backend API:** Next.js Serverless Route Handlers.
+- **Database:** PostgreSQL via Prisma ORM.
+- **Web3 Engine:** Wagmi, Viem, Ethers.js.
+- **Automations:** Node.js Audio Workers (WAV processing) & NFT Metadata generation.
+
+---
+
+## 🔒 Licensing & Monetization
+
+Licenses are distributed as Utility NFTs (ERC-1155 & ERC-721), unlocking token-gated high-resolution audio files for buyers.
+- **EIP-2981 Compliant:** Enforces secondary royalties automatically.
+- **SIWE Integration:** Password-less authentication using Ethereum wallets.
+
+---
+
+## ⚡ Quick Start
 
 ```bash
+# 1. Install dependencies
+npm install
+
+# 2. Configure Environment Variables
+cp .env.example .env
+
+# 3. Setup the Prisma Database
+npx prisma db push
+
+# 4. Run the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> **Environment Note:** Operates at `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+<div align="center">
+  <p>Built with vision by <b>Andr3wGustavo</b> and the AWPLACE team.</p>
+</div>
