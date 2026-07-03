@@ -28,6 +28,7 @@ export async function uploadBeatAction(formData: FormData) {
             genre,
             priceUsd,
             priceEth,
+            demoAudioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3", // Mock para testes sem IPFS
             producer: {
                 connectOrCreate: {
                     where: { email: "producer@awplace.dog" },
@@ -37,7 +38,12 @@ export async function uploadBeatAction(formData: FormData) {
         }
     });
 
-    return newBeat;
+    // Avisa o Next.js para atualizar o cache da vitrine (Storefront) instantaneamente
+    const { revalidatePath } = require("next/cache");
+    const { redirect } = require("next/navigation");
+    
+    revalidatePath('/');
+    redirect('/studio?upload=success');
 }
 
 /**
