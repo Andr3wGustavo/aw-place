@@ -3,7 +3,7 @@
   <img src="https://img.shields.io/badge/Next.js_15-black?style=for-the-badge&logo=next.js" alt="Next.js" />
   <img src="https://img.shields.io/badge/Prisma_ORM-2D3748?style=for-the-badge&logo=prisma" alt="Prisma" />
   <br/>
-  <h1>AWPLACE DOG 🎵</h1>
+  <h1>AWPLACE </h1>
   <p>A decentralized, highly-optimized beat store leveraging Web3 ownership and traditional fiat gateways.</p>
 
   <!-- TODO: Replace placeholder below with actual application UI screenshot -->
