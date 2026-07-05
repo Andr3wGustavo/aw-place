@@ -40,6 +40,16 @@ Licenses are distributed as Utility NFTs (ERC-1155 & ERC-721), unlocking token-g
 
 ---
 
+## 📚 Documentation
+
+Dive deeper into the project specifications, current progress, and future plans:
+- [📍 Project Checkpoint & Status](./docs/CHECKPOINT.md)
+- [🗺️ Development Roadmap](./docs/roadmap.md)
+- [🏗️ Features & Architecture](./docs/features_and_architecture.md)
+- [💼 Business Model](./docs/modelo_de_negocio.md)
+
+---
+
 ## ⚡ Quick Start
 
 ```bash
