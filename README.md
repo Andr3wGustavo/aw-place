@@ -7,7 +7,7 @@
   <p>A decentralized, highly-optimized beat store leveraging Web3 ownership and traditional fiat gateways.</p>
 
   <!-- TODO: Replace placeholder below with actual application UI screenshot -->
-  <img src="https://via.placeholder.com/800x450/09090b/6366f1?text=AWPLACE+DOG+UI+Mockup" alt="AWPLACE DOG Interface" width="100%" />
+  <img src="https://via.placeholder.com/800x450/09090b/6366f1?text=AWPLACE+DOG+UI+Mockup" alt="AWPLACE" width="100%" />
 </div>
 
 <br/>
